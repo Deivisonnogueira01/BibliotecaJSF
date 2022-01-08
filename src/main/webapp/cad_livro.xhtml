@@ -1,0 +1,77 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui"
+>
+  <h:head>
+
+  <h:outputStylesheet library="css" name="styles.css"/>
+  
+    <title>Registro de Livro</title>
+  </h:head>
+
+  <h:body>
+    <div class="corp">
+    <h:form styleClass="form-horizontal">
+      <fieldset>
+        <legend>
+          <h3>
+            Cadastro de Livro
+          </h3>
+        </legend>
+        <p:growl id="growl" sticky="true" showDetail="true" />
+
+        <h5>Digite o nome do livro</h5>
+        <span class="ui-float-label">
+          <p:inputText id="float-input" value="#{livroBean.livro.nome}" />
+          <p:outputLabel for="@previous" value="nome do livro" />
+        </span>
+
+        <h5>Digite o autor do livro</h5>
+        <span class="ui-float-label">
+          <p:inputText id="float-input1" value="#{livroBean.livro.autor}" />
+          <p:outputLabel for="@previous" value="nome do autor" />
+        </span>
+
+        <h5>Digite a editora</h5>
+        <span class="ui-float-label">
+          <p:inputText id="float-input2" value="#{livroBean.livro.editora}" />
+          <p:outputLabel for="@previous" value="editora" />
+        </span>
+
+        <h5>Digite o código do livro</h5>
+        <span class="ui-float-label">
+          <p:inputText
+            id="float-input3"
+            value="#{livroBean.livro.codigoLivro}"
+          />
+          <p:outputLabel for="@previous" value="código do livro" />
+        </span>
+
+        <h5>Digite o ano de publicação</h5>
+        <span class="ui-float-label">
+          <p:inputText id="float-input4" value="#{livroBean.livro.ano}" />
+          <p:outputLabel for="@previous" value="ano de publicação" />
+        </span>
+        <p />
+        <p:commandButton
+          value="Cadastrar"
+          action="#{livroBean.cadastrar}"
+          update="growl"
+        />
+      </fieldset>
+
+      <p:dialog
+        id="dialog"
+        header="Cadastrando Livro"
+        widgetVar="dlg"
+        dynamic="true"
+        modal="true"
+      >
+        <h:outputText>Em execução. Aguarde...</h:outputText>
+      </p:dialog>
+    </h:form>
+  </div>
+  </h:body>
+</html>

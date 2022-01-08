@@ -1,0 +1,16 @@
+br\edu\ifms\biblioteca\bean\LivroBean.class
+br\edu\ifms\biblioteca\bean\UsuarioBean.class
+br\edu\ifms\biblioteca\App.class
+br\edu\ifms\biblioteca\bean\PessoaBean.class
+br\edu\ifms\biblioteca\dao\UserDAO.class
+br\edu\ifms\biblioteca\bean\EmprestimoBean.class
+br\edu\ifms\biblioteca\bean\AcervoBean.class
+br\edu\ifms\biblioteca\dao\EmprestimoDAO.class
+br\edu\ifms\biblioteca\dao\LivroDAO.class
+br\edu\ifms\biblioteca\model\Usuario.class
+br\edu\ifms\biblioteca\model\Acervo.class
+br\edu\ifms\biblioteca\model\Emprestimo.class
+br\edu\ifms\biblioteca\bd\ConexaoMySQL.class
+br\edu\ifms\biblioteca\dao\AcervoDAO.class
+br\edu\ifms\biblioteca\model\Pessoa.class
+br\edu\ifms\biblioteca\model\Livro.class
