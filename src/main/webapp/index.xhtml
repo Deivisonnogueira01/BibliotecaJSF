@@ -1,15 +1,45 @@
-<html
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://java.sun.com/jsf/html"
-  xmlns:f="http://java.sun.com/jsf/core"
-  xmlns:p="http://primefaces.org/ui"
->
-  <h:head>
-    <title>Biblioteca IFMS</title>
-  </h:head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Biblioteca IFMS</title>
+</h:head>
 
 
-  <h:body>
-    <p:spinner />
-  </h:body>
+<h:body>
+	<p:spinner />
+
+
+
+	<div class="card">
+		<h:form>
+			<p:growl id="growl" />
+
+			<p:panel id="pnl" header="New User">
+				<p:messages id="messages" />
+				<h:panelGrid columns="3" id="grid" cellpadding="7">
+					<p:outputLabel for="username" value="Username" />
+					<p:inputText id="username" value="#{spotlightView.username}"
+						required="true">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="username" />
+
+					<p:outputLabel for="email" value="Surname:" />
+					<p:inputText id="email" value="#{spotlightView.email}"
+						required="true" />
+					<p:message for="email" />
+				</h:panelGrid>
+
+				<p:commandButton value="Save" icon="pi pi-check"
+					action="#{spotlightView.save}" update="growl grid"
+					oncomplete="handleForm(xhr, status, args)" styleClass="p-mt-3" />
+			</p:panel>
+
+			<p:spotlight target="pnl" widgetVar="spot" />
+		</h:form>
+
+	</div>
+</h:body>
 </html>

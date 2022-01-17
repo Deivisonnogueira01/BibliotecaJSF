@@ -19,7 +19,10 @@ import br.edu.ifms.biblioteca.model.Acervo;
 @RequestScoped
 
 public class AcervoBean implements Serializable {
-    @Inject
+  
+	private static final long serialVersionUID = 1L;
+
+	@Inject
     private Acervo acervo;
 
     @Inject

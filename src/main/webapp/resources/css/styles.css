@@ -1,19 +1,37 @@
-@charset "utf-8";
-
-
-body{
-
-    width: 100%;
-    height: 100%;
+*{
+  margin: 20px;
+  padding: -1px;
 }
 
 
+body{
+	
+	background-color: #F0F8FF;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #59429d;
+    margin-left: 36%;
+    margin-top: 2%;
+    justify-content: center;
+ /*  display:inblock;
+    width: 100%;
+    height: 100%;
+    color: black;
+    */
+}
+
+
+
 .corp .form-horizontal{
-   width: 200px; 
-   height: 200px;
-   position: absolute;
-   top: 50%;
-   left:50%;
-   margin-top: -100px;
-   margin-left: -100px;
+ 
+   font-size: 1.2em;
+    background: #59429d;
+    border: 0;
+    margin-bottom: 1em;
+    color: #ffffff;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    width: 450px; 
+   
 }

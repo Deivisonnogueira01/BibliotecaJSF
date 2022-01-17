@@ -2,17 +2,21 @@ package br.edu.ifms.biblioteca.dao;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.Date;
 //import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 //import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifms.biblioteca.bd.ConexaoMySQL;
 import br.edu.ifms.biblioteca.model.Emprestimo;
+import br.edu.ifms.biblioteca.model.Livro;
+import br.edu.ifms.biblioteca.model.Usuario;
 //mport br.edu.ifms.biblioteca.model.Livro;
 // import br.edu.ifms.biblioteca.model.Usuario;
 
@@ -31,11 +35,13 @@ public class EmprestimoDAO implements Serializable {
 
     // CRUD
 
-    // private int id;
-    // private Usuario user;
-    // private List<Livro> livros;
-    // private LocalDate dtEmprestimo;
-    // private LocalDate dtDevolucao;
+     private int id;
+     private Usuario user;
+     private List<Livro> livros;
+     private LocalDate dtEmprestimo;
+     private LocalDate dtDevolucao;
+     
+     
 
     public void salvar(Emprestimo emprestimo) { // inserir um novo emprestimo
         String sql = "INSERT INTO tb_emprestimo (id,  id_usuario, id_livro, data_emprestimo, data_devolucao) VALUES (?, ?, ?, ?, ?)";
@@ -45,8 +51,16 @@ public class EmprestimoDAO implements Serializable {
             ps.setInt(1, emprestimo.getId());
             ps.setInt(2, emprestimo.getUser().getId());
             ps.setInt(3, ((Emprestimo) emprestimo.getLivros()).getId());
-            ps.setDate(4, new java.sql.Date(emprestimo.getDtDevolucao().getDayOfMonth()));
-            ps.setDate(5, new java.sql.Date(emprestimo.getDtEmprestimo().getDayOfMonth()));
+            emprestimo.getDtDevolucao();
+			LocalDate.now();
+            emprestimo.getDtEmprestimo();
+			LocalDate.now();
+          // ps.setDate(4, emprestimo.getDtDevolucao().adjustInto(dtDevolucao));
+          //  ps.setDate(4, emprestimo.getDtDevolucao(x);
+           
+            
+          //  ps.setDate(4, new java.sql.Date(emprestimo.getDtDevolucao().getDayOfMonth()));
+          //  ps.setDate((5, emprestimo.getDtEmprestimo().LocalDate.now()));
 
             int resultado = ps.executeUpdate();
             if (resultado > 0)
@@ -73,24 +87,10 @@ public class EmprestimoDAO implements Serializable {
                 emprestimo.getId(); // id
                 emprestimo.getUser().getId(); // Usuario user
                 ((Emprestimo) emprestimo.getLivros()).getId();
-                new java.sql.Date(emprestimo.getDtDevolucao().getDayOfMonth());
-                new java.sql.Date(emprestimo.getDtEmprestimo().getDayOfMonth());
-                // private LocalDate dtEmprestimo;
-                // private LocalDate dtDevolucao;
-                // emprestimo.getLivros().getId(2);
-
-                // emprestimo.setId(rs.getInt(1));
-                // int idLivro = rs.getInt(1);
-                // Livro l = new Livro();
-                // l.setId(idLivro);
-                // emprestimo.setUser.setId(rs.getString(2));
-                // emprestimo.setDtDevolucao().getDayOfMonth();
-                // ps.setDate(5, new
-                // java.sql.Date(emprestimo.getDtEmprestimo().getDayOfMonth()));
-
-                // emprestimo.setLivros(rs.getString(3));
-                // emprestimo.setDtEmprestimo(rs.getString("Emprestimo"));
-                // emprestimo.setDtDevolucao(rs.getString("Devolução"));
+                emprestimo.getDtDevolucao();
+				LocalDate.now();
+                emprestimo.getDtEmprestimo();
+				LocalDate.now();
 
                 emprestimos.add(emprestimo);
             }
@@ -122,25 +122,28 @@ public class EmprestimoDAO implements Serializable {
         }
 
     }
-
+   
     // -------------------------------------------------------------------------
     public void atualizar(Emprestimo emprestimo) { // atualizar um emprestimo
         String sql = "UPDATE tb_emprestimo SET id = ?, id_usuario = ?, id_livro = ?, data_emprestimo = ?, data_devolucao = ?"; // WHERE
         // id =
         // ?";
+       
         try {
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, emprestimo.getId());
             ps.setInt(2, emprestimo.getUser().getId());
-            ps.setInt(3, ((Emprestimo) emprestimo.getLivros()).getId());
-            ps.setDate(4, new java.sql.Date(emprestimo.getDtDevolucao().getDayOfMonth()));
-            ps.setDate(5, new java.sql.Date(emprestimo.getDtEmprestimo().getDayOfMonth()));
-            // ps.setInt(3, emprestimo.getLivros());
-            // ps.setDate(4, emprestimo.getDtEmprestimo());
-            // ps.setDate(5,emprestimo.getDtDevolucao());
-            // LocalDate ld = new LocalDate();
+            emprestimo.getDtDevolucao();
+			LocalDate.now();
+            emprestimo.getDtEmprestimo();
+			LocalDate.now();
+          //  ps.setDate(4, new java.sql.Date(emprestimo.getDtDevolucao().getDayOfMonth()));
+         //   ps.setDate(5,emprestimo.getDtEmprestimo().format(new Date()));
+            
+			//ps.setDate(5,new Date());
+            
             int rowUpdate = ps.executeUpdate();
 
             if (rowUpdate > 0) {
@@ -153,7 +156,7 @@ public class EmprestimoDAO implements Serializable {
             e.printStackTrace();
         }
     }
-    // -------------------------------------------------------------------------
+ 
 
 }
 	
